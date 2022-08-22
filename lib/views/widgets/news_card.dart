@@ -6,12 +6,14 @@ class NewsCard extends StatelessWidget {
   final String source;
   final String time;
   final String imageUrl;
+  final String newsUrl;
 
   NewsCard(
       {required this.topic,
       required this.source,
       required this.time,
-      required this.imageUrl});
+      required this.imageUrl,
+      required this.newsUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +21,12 @@ class NewsCard extends StatelessWidget {
       alignment: Alignment.topRight,
       child: Card(
         elevation: 2,
-              child: Container(
+        child: Container(
           height: getHeight(103),
           width: getWidth(328),
           margin: EdgeInsets.symmetric(horizontal: getWidth(16)),
-          padding: EdgeInsets.symmetric(horizontal: getWidth(11), vertical: getHeight(11)),
+          padding: EdgeInsets.symmetric(
+              horizontal: getWidth(11), vertical: getHeight(11)),
           child: Row(
             children: [
               Column(
@@ -32,14 +35,21 @@ class NewsCard extends StatelessWidget {
                   Container(
                       height: getHeight(38),
                       width: getWidth(205),
-                      child: Text(topic)),
+                      child: Text(
+                        topic,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                      )),
                   SizedBox(height: getHeight(8)),
                   Row(
                     children: [
-                      Text(source),
+                      Text(
+                        source,
+                      ),
                       const Text(
                         ' . ',
-                        style: TextStyle(fontWeight: FontWeight.w900, fontSize: 15),
+                        style: TextStyle(
+                            fontWeight: FontWeight.w900, fontSize: 15),
                         textAlign: TextAlign.center,
                       ),
                       const Text('time')

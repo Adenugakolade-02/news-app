@@ -45,11 +45,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
         ),
         body: TabBarView(
           children: [
-            Center(child:Text('okay')),
-            Center(child:Text('okay')),
-            Center(child:Text('okay')),
-            Center(child:Text('okay')),
-            TabViewWidget(url: "https://newsapi.org/v2/everything?q=tesla&from=2022-07-22&sortBy=publishedAt&apiKey=efaf70469f0e409e90fc8596bc427b34")
+            TabViewWidget(url: "https://newsapi.org/v2/everything?q=latest&apiKey=efaf70469f0e409e90fc8596bc427b34"),
+            TabViewWidget(url: "https://newsapi.org/v2/everything?q=nigeria&apiKey=efaf70469f0e409e90fc8596bc427b34"),
+            TabViewWidget(url: "https://newsapi.org/v2/everything?q=global&apiKey=efaf70469f0e409e90fc8596bc427b34"),
+            TabViewWidget(url: "https://newsapi.org/v2/everything?q=football&apiKey=efaf70469f0e409e90fc8596bc427b34"),
+            TabViewWidget(url: "https://newsapi.org/v2/everything?q=entertainment&apiKey=efaf70469f0e409e90fc8596bc427b34")
             // Center(child:Text('okay')),
             // NewsCard(
             //   topic: "The January 6 Secret Service Text Scandal Turns Criminal", 
