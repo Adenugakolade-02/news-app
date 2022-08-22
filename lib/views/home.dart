@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newsapp/views/widgets/news_card.dart';
 
 
 
@@ -8,17 +9,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
-  late TabController _tabController;
-
-   @override
-    void initState() {
-      super.initState();
-      _tabController = TabController(length: 6, vsync: this);
-      _tabController.animateTo(2);
-    }
-  
-  
-  TextStyle _style = const TextStyle(fontFamily: "Roboto",fontSize: 16);
   
   List<Tab> _tabs =[
         const Tab(child: Text("Latest")),
@@ -58,7 +48,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
             Center(child:Text('okay')),
             Center(child:Text('okay')),
             Center(child:Text('okay')),
-            Center(child:Text('okay')),
+            // Center(child:Text('okay')),
+            NewsCard(
+              topic: "The January 6 Secret Service Text Scandal Turns Criminal", 
+              source: 'Wired', 
+              time: "22 days ago", 
+              imageUrl: "https://media.wired.com/photos/62db3603a524e4ef61bb6889/191:100/w_1280,c_limit/January-6-Secret-Service-Security-GettyImages-1230451801.jpg")
           ]),
       ),
     );
@@ -67,24 +62,3 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
 
 
 
-// class TabBars extends StatelessWidget with PreferredSizeWidget{
-
-//   final TextStyle _unpickedTextStyle = const TextStyle(fontFamily: "Roboto", fontSize: 16, fontWeight: FontWeight.w400, color: Colors.black38);
-//   final TextStyle _pickedTextStyle = const TextStyle(fontFamily: "Roboto", fontSize: 16, fontWeight: FontWeight.w400, color: Color(0xFF3E0882));
-//   @override
-//   Widget build(BuildContext context){
-//     return TabBar(
-//       controller: T,
-//       tabs: [
-//         Tab(child: Text("Latest",style: _unpickedTextStyle,)),
-//         Tab(child: Text("Nigeria",style: _unpickedTextStyle,)),
-//         Tab(child: Text("Global",style: _unpickedTextStyle,)),
-//         Tab(child: Text("Sports",style: _unpickedTextStyle,)),
-//         Tab(child: Text("Entertainment",style: _unpickedTextStyle,)),
-//       ]
-//     );
-//   }
-  
-//   @override
-//   Size get preferredSize => Size.fromHeight(kToolbarHeight + kTextTabBarHeight);
-// }
