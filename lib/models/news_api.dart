@@ -12,7 +12,7 @@ class NewsAPI{
 
   factory NewsAPI.fromJson(Map<String, dynamic> json){
     Source source = Source.fromJson(json['source']);
-    return NewsAPI._(source: source, title: json['title'], imageURL: json['imageURL'], newsURL: json['newsURL']);
+    return NewsAPI._(source: source, title: json['title'], imageURL: "${json['urlToImage']}", newsURL: json['url']);
   }
 
   Map<String, dynamic> toJson() => {'source':source, 'title': title, 'url':newsURL, 'urlToImage': imageURL};

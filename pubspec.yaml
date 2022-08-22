@@ -30,7 +30,7 @@ dependencies:
   flutter:
     sdk: flutter
   get: ^4.6.5
-  http: ^0.12.2
+  http: ^0.13.5
 
 
 

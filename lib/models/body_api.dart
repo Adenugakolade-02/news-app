@@ -12,5 +12,6 @@ class Body{
     List<NewsAPI> newsList = list.map((e) => NewsAPI.fromJson(e)).toList();
     return Body._(articles: newsList);
   }
-
+  @override
+  String toString() => "${articles[0]}";
 }
