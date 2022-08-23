@@ -13,6 +13,17 @@ class TabViewWidget extends StatefulWidget {
 }
 
 class _TabViewWidgetState extends State<TabViewWidget> {
+
+  Body? data;
+  
+  Future<void> refreshData() async{
+     Body new_data =  await RequestItem(url: widget.url).excute();
+    setState(() {
+      data = new_data;
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -21,7 +32,13 @@ class _TabViewWidgetState extends State<TabViewWidget> {
           if (!snapshot.hasData) {
             return const Center(child: CircularProgressIndicator());
           }
-          return CardViewBuilder(newsData: snapshot.data as Body);
+          else{
+            data = snapshot.data as Body;
+            return RefreshIndicator(
+            color: const Color(0xFF3E0882),
+            child: CardViewBuilder(newsData: data!), onRefresh: refreshData);
+          }
+          // CardViewBuilder(newsData: snapshot.data as Body);
         });
   }
 }
